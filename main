@@ -1,0 +1,66 @@
+using System;
+using System.Globalization;
+
+namespace Programa1emC_Sharp
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double aX, bX, cX, x;
+            double aY, bY, cY, y;
+
+            Console.WriteLine("Insira as dimensões: ");
+            aX = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            bX = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            cX = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+            Console.WriteLine(" ");
+
+            Console.WriteLine("Insira as dimensões: ");
+            aY = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            bY = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            cY = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+            x = calculoX(aX, bX, cX);
+            y = calculoY(aY, bY, cY);
+
+            Console.WriteLine("Área de X é = " + x.ToString("F4"), CultureInfo.InvariantCulture);
+            Console.WriteLine("Área de Y é = " + y.ToString("F4"), CultureInfo.InvariantCulture);
+
+            if(x > y) 
+            {
+                Console.WriteLine("Maior área: X");
+            }
+            else
+            {
+                Console.WriteLine("Maior área: Y");
+            }
+                    
+        } 
+
+        static double calculoX (double n1, double n2, double n3)
+        {
+            double p;
+
+            p = (n1 + n2 + n3) / 2;
+
+            double areaX = Math.Sqrt(p * (p - n1) * (p - n2) * (p - n3));
+
+            return areaX;
+
+        }
+
+        static double calculoY(double n1, double n2, double n3)
+        {
+            double p;
+
+            p = (n1 + n2 + n3) / 2;
+
+            double areaY = Math.Sqrt(p * (p - n1) * (p - n2) * (p - n3));
+
+            return areaY;
+
+        }
+    }
+}
